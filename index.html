@@ -1,347 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>8K Full-Screen Camera</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            background-color: #000;
-            height: 100vh;
-            width: 100vw;
-            overflow: hidden;
-            position: relative;
-            font-family: Arial, sans-serif;
-        }
-        
-        #cameraView {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transform: scaleX(-1); /* Mirror effect for front camera */
-        }
-        
-        #status {
-            position: absolute;
-            top: 20px;
-            left: 0;
-            right: 0;
-            color: white;
-            text-align: center;
-            background-color: rgba(0,0,0,0.7);
-            padding: 10px;
-            z-index: 10;
-            transition: opacity 0.5s;
-        }
-        
-        #controls {
-            position: absolute;
-            bottom: 20px;
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            z-index: 10;
-        }
-        
-        .control-btn {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            border: none;
-            background-color: rgba(255,255,255,0.2);
-            backdrop-filter: blur(10px);
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s;
-        }
-        
-        .control-btn:hover {
-            background-color: rgba(255,255,255,0.3);
-            transform: scale(1.05);
-        }
-        
-        #captureBtn {
-            width: 80px;
-            height: 80px;
-            background-color: rgba(255,255,255,0.9);
-            border: 4px solid rgba(255,255,255,0.7);
-        }
-        
-        #flash {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: white;
-            opacity: 0;
-            pointer-events: none;
-            z-index: 5;
-            transition: opacity 0.1s;
-        }
-        
-        @media (max-width: 768px) {
-            .control-btn {
-                width: 60px;
-                height: 60px;
-                font-size: 20px;
-            }
-            
-            #captureBtn {
-                width: 70px;
-                height: 70px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Instagram Login</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fafafa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: #fff;
+      border: 1px solid #dbdbdb;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 350px;
+    }
+
+    .logo {
+      display: block;
+      margin: 0 auto 1.5rem auto;
+      width: 175px;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    label {
+      font-size: 14px;
+      margin-bottom: 0.3rem;
+      display: block;
+    }
+
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 0.6rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      padding: 0.6rem;
+      background-color: #0095f6;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #007cd6;
+    }
+
+    .extra-links {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 13px;
+    }
+
+    .extra-links a {
+      color: #385185;
+      text-decoration: none;
+    }
+
+    .extra-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-    <video id="cameraView" autoplay playsinline></video>
-    <div id="status">Initializing 8K camera...</div>
-    <div id="flash"></div>
-    
-    <div id="controls">
-        <button class="control-btn" id="switchBtn" title="Switch Camera">↻</button>
-        <button class="control-btn" id="captureBtn" title="Take Photo"></button>
-        <button class="control-btn" id="settingsBtn" title="Settings">⚙️</button>
+
+  <div class="container">
+    <img 
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/2560px-Instagram_logo.svg.png" 
+      alt="Instagram Logo" 
+      class="logo"
+    />
+
+    <form action="#" method="post">
+      <div class="form-group">
+        <label for="username">Username or Email</label>
+        <input type="text" id="username" name="username" required />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required />
+      </div>
+
+      <button type="submit">Log In</button>
+    </form>
+
+    <div class="extra-links">
+      <p><a href="#">Forgot password?</a></p>
+      <p>Don't have an account? <a href="#">Sign up</a></p>
     </div>
+  </div>
 
-    <script>
-        // DOM elements
-        const video = document.getElementById('cameraView');
-        const status = document.getElementById('status');
-        const flash = document.getElementById('flash');
-        const switchBtn = document.getElementById('switchBtn');
-        const captureBtn = document.getElementById('captureBtn');
-        const settingsBtn = document.getElementById('settingsBtn');
-        
-        // Camera state
-        let stream = null;
-        let currentFacingMode = 'environment'; // Start with rear camera
-        let lastPhotoUrl = null;
-        let maxResolution = { width: 7680, height: 4320 }; // 8K resolution
-
-        // Check camera support
-        function hasGetUserMedia() {
-            return !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia);
-        }
-
-        // Get available camera resolutions
-        async function getCameraCapabilities() {
-            try {
-                const devices = await navigator.mediaDevices.enumerateDevices();
-                const videoDevices = devices.filter(device => device.kind === 'videoinput');
-                
-                if (videoDevices.length === 0) {
-                    throw new Error('No cameras found');
-                }
-                
-                // For each camera, get capabilities
-                for (const device of videoDevices) {
-                    const stream = await navigator.mediaDevices.getUserMedia({
-                        video: {
-                            deviceId: device.deviceId,
-                            facingMode: device.label.includes('front') ? 'user' : 'environment'
-                        }
-                    });
-                    
-                    const track = stream.getVideoTracks()[0];
-                    const capabilities = track.getCapabilities();
-                    
-                    console.log('Camera capabilities:', capabilities);
-                    
-                    // Update max resolution if this camera supports higher
-                    if (capabilities.width && capabilities.width.max > maxResolution.width) {
-                        maxResolution.width = capabilities.width.max;
-                    }
-                    if (capabilities.height && capabilities.height.max > maxResolution.height) {
-                        maxResolution.height = capabilities.height.max;
-                    }
-                    
-                    // Stop the track
-                    track.stop();
-                }
-                
-                status.textContent = `Maximum supported resolution: ${maxResolution.width}x${maxResolution.height}`;
-                
-            } catch (err) {
-                console.error('Error getting camera capabilities:', err);
-                maxResolution = { width: 1920, height: 1080 }; // Fallback to 1080p
-                status.textContent = 'Using default resolution (8K may not be supported)';
-            }
-        }
-
-        // Start camera with specified facing mode
-        async function startCamera(facingMode) {
-            if (!hasGetUserMedia()) {
-                status.textContent = "Your browser doesn't support camera access";
-                return;
-            }
-
-            // Stop any existing stream
-            if (stream) {
-                stream.getTracks().forEach(track => track.stop());
-            }
-
-            status.textContent = "Accessing 8K camera...";
-            status.style.opacity = '1';
-            status.style.display = 'block';
-            
-            try {
-                const constraints = {
-                    video: {
-                        facingMode: facingMode,
-                        width: { ideal: maxResolution.width },
-                        height: { ideal: maxResolution.height }
-                    },
-                    audio: false
-                };
-
-                stream = await navigator.mediaDevices.getUserMedia(constraints);
-                video.srcObject = stream;
-                
-                // Apply mirror effect for front camera
-                video.style.transform = facingMode === 'user' ? 'scaleX(-1)' : 'scaleX(1)';
-                
-                status.textContent = `8K Camera Ready (${video.videoWidth}x${video.videoHeight})`;
-                
-                // Hide status after 3 seconds
-                setTimeout(() => {
-                    status.style.opacity = '0';
-                    setTimeout(() => status.style.display = 'none', 500);
-                }, 3000);
-                
-            } catch (err) {
-                console.error("Camera error:", err);
-                handleCameraError(err);
-                
-                // Try again with lower resolution if 8K fails
-                if (err.name === 'OverconstrainedError') {
-                    status.textContent = "8K not supported, trying 4K...";
-                    maxResolution = { width: 3840, height: 2160 };
-                    setTimeout(() => startCamera(facingMode), 500);
-                }
-            }
-        }
-
-        // Handle camera errors
-        function handleCameraError(err) {
-            switch(err.name) {
-                case 'NotAllowedError':
-                    status.textContent = "Camera access denied. Please allow camera permissions.";
-                    break;
-                case 'NotFoundError':
-                    status.textContent = "No camera found on this device.";
-                    break;
-                case 'NotReadableError':
-                    status.textContent = "Camera is already in use by another application.";
-                    break;
-                case 'OverconstrainedError':
-                    status.textContent = "Requested resolution not supported. Trying lower resolution...";
-                    break;
-                default:
-                    status.textContent = "Could not access the camera: " + err.message;
-            }
-            
-            status.style.opacity = '1';
-            status.style.display = 'block';
-        }
-
-        // Capture photo
-        function capturePhoto() {
-            if (!stream) return;
-
-            // Flash effect
-            flash.style.opacity = '1';
-            setTimeout(() => flash.style.opacity = '0', 100);
-
-            // Create canvas
-            const canvas = document.createElement('canvas');
-            canvas.width = video.videoWidth;
-            canvas.height = video.videoHeight;
-            const ctx = canvas.getContext('2d');
-            
-            // Draw image (mirrored for front camera)
-            if (currentFacingMode === 'user') {
-                ctx.translate(canvas.width, 0);
-                ctx.scale(-1, 1);
-            }
-            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-            
-            // Create download link
-            lastPhotoUrl = canvas.toDataURL('image/jpeg', 0.95);
-            const link = document.createElement('a');
-            link.download = `8K-photo-${new Date().toISOString().replace(/[:.]/g, '-')}.jpg`;
-            link.href = lastPhotoUrl;
-            link.click();
-            
-            // Show status briefly
-            status.style.display = 'block';
-            status.style.opacity = '1';
-            status.textContent = `Captured at ${canvas.width}x${canvas.height} resolution`;
-            setTimeout(() => {
-                status.style.opacity = '0';
-                setTimeout(() => status.style.display = 'none', 500);
-            }, 2000);
-        }
-
-        // Switch between front/back camera
-        function switchCamera() {
-            currentFacingMode = currentFacingMode === 'user' ? 'environment' : 'user';
-            startCamera(currentFacingMode);
-        }
-
-        // Show settings
-        function showSettings() {
-            status.style.display = 'block';
-            status.style.opacity = '1';
-            status.textContent = `Current resolution: ${video.videoWidth}x${video.videoHeight}`;
-            setTimeout(() => {
-                status.style.opacity = '0';
-                setTimeout(() => status.style.display = 'none', 500);
-            }, 3000);
-        }
-
-        // Event listeners
-        captureBtn.addEventListener('click', capturePhoto);
-        switchBtn.addEventListener('click', switchCamera);
-        settingsBtn.addEventListener('click', showSettings);
-        
-        // Start camera when page loads
-        window.addEventListener('load', async () => {
-            await getCameraCapabilities();
-            startCamera(currentFacingMode);
-        });
-        
-        // Clean up when leaving
-        window.addEventListener('beforeunload', () => {
-            if (stream) {
-                stream.getTracks().forEach(track => track.stop());
-            }
-        });
-
-        // Handle visibility changes
-        document.addEventListener('visibilitychange', () => {
-            if (document.visibilityState === 'hidden' && stream) {
-                stream.getTracks().forEach(track => track.stop());
-            } else if (document.visibilityState === 'visible') {
-                startCamera(currentFacingMode);
-            }
-        });
-    </script>
 </body>
 </html>
